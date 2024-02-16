@@ -36,6 +36,9 @@ import { PlanificationComponent } from './components/planification/planification
 import { AddPlanificationComponent } from './components/planification/add-planification/add-planification.component';
 import { UpdateEchantillonComponent } from './components/echantillon/update-echantillon/update-echantillon.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { TemplateComponent } from './components/template/template.component';
+import { JWT_OPTIONS, JwtModule } from '@auth0/angular-jwt';
 
 
 
@@ -67,7 +70,9 @@ import { HomeComponent } from './components/home/home.component';
     PlanificationComponent,
     AddPlanificationComponent,
     UpdateEchantillonComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    TemplateComponent,
 
   ],
 
@@ -76,7 +81,7 @@ import { HomeComponent } from './components/home/home.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CommonModule,FormsModule,
+ 
     // BsDatepickerModule.forRoot(),
 
 

@@ -22,6 +22,6 @@ export class SidebarItemsComponent{
   navigateToRoute(route: RouteItem) {
 
    // console.log(`Navigating to route: ${route.path}`);
-    this.router.navigate([route.path]);
+    this.router.navigate(['app/'+route.path]);
 }
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddPatientComponent } from './components/patient/add-patient/add-patient.component';
 import { AllPatientsComponent } from './components/patient/all-patients/all-patients.component';
+import { LoginComponent } from './components/login/login.component';
 import {UpdatePatientComponent} from "./components/patient/update-patient/update-patient.component";
 import {AddUtilisateurComponent} from "./components/utilitateur/add-utilisateur/add-utilisateur.component";
 import { AddAnalyseComponent } from './components/analyse/add-analyse/add-analyse.component';
@@ -24,34 +25,47 @@ import { UpdateEchantillonComponent } from './components/echantillon/update-echa
 import { HomeComponent } from './components/home/home.component';
 
 import {PlanificationComponent} from "./components/planification/planification.component";
+import { TemplateComponent } from './components/template/template.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 
 
 
 const routes: Routes = [
-  { path: 'addPatient', component: AddPatientComponent },
-  { path: 'patient/all', component: AllPatientsComponent },
-  { path: 'patient/update/:id', component: UpdatePatientComponent },
-  { path: 'addUser', component: AddUtilisateurComponent },
-  { path: 'user/all', component: AllUtilisateurComponent },
-  { path:  'utilisateur/update/:id', component: UpdateUtilisateurComponent },
-  { path: 'addAnalyse', component: AddAnalyseComponent },
-  { path: 'addEchantillon', component: AddEchantillonComponent },
-  { path: 'echantillon/all', component: ListEchantillonComponent },
-  { path: 'addSupplier', component: AddFournisseurComponent },
-  { path: 'supplier/all', component: FournisseurComponent },
-  { path: 'updateSupplier/:id', component: UpdateFournisseurComponent },
-  { path: 'reactif/all', component: ReactifComponent },
-  { path: 'addReactif', component: AddReactifComponent },
-  { path: 'updateReactif/:id', component: UpdateReactifComponent },
-  { path: 'analyse/all', component: AllAnalyseComponent },
-  { path: 'addAnalyse', component: AddAnalyseComponent },
-  { path: 'addPlanification', component: AddPlanificationComponent },
-  { path: 'updateSample/:id', component: UpdateEchantillonComponent },
+  {path: '', component: LoginComponent},
+  {path: 'login', component: LoginComponent},
+  {
+    path: 'app',
+    component: TemplateComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: 'addPatient', component: AddPatientComponent },
+      { path: 'patient/all', component: AllPatientsComponent },
+      { path: 'patient/update/:id', component: UpdatePatientComponent },
+      { path: 'addUser', component: AddUtilisateurComponent },
+      { path: 'user/all', component: AllUtilisateurComponent },
+      { path:  'utilisateur/update/:id', component: UpdateUtilisateurComponent },
+      { path: 'addAnalyse', component: AddAnalyseComponent },
+      { path: 'addEchantillon', component: AddEchantillonComponent },
+      { path: 'echantillon/all', component: ListEchantillonComponent },
+      { path: 'addSupplier', component: AddFournisseurComponent },
+      { path: 'supplier/all', component: FournisseurComponent },
+      { path: 'updateSupplier/:id', component: UpdateFournisseurComponent },
+      { path: 'reactif/all', component: ReactifComponent },
+      { path: 'addReactif', component: AddReactifComponent },
+      { path: 'updateReactif/:id', component: UpdateReactifComponent },
+      { path: 'analyse/all', component: AllAnalyseComponent },
+      { path: 'addAnalyse', component: AddAnalyseComponent },
+      { path: 'addPlanification', component: AddPlanificationComponent },
+      { path: 'updateSample/:id', component: UpdateEchantillonComponent },
 
-  { path: '', component: HomeComponent },
+      { path: '', component: HomeComponent },
 
-  { path: 'planification/all', component: PlanificationComponent }
+      { path: 'planification/all', component: PlanificationComponent }
+   
+    ]
+  },
+  
 
 
 ];
